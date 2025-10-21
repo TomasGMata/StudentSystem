@@ -1,6 +1,12 @@
 public enum Command {
     HELP("help - list all commands"),
     EXIT("Bye!"),
+    SC("%s %S added."),
+    IT("Invalid service type!"),
+    IL("Invalid location!"),
+    IMP("Invalid menu price!"),
+    IRP("Invalid room price!"),
+    ITP("Invalid ticket price"),
     UNKNOWN("Unknown command. Type help to see available commands.");
 
     String helpMsg;

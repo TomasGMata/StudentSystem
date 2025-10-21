@@ -25,6 +25,7 @@ public class Main {
             case "bounds" -> processBound(in, manager);
             case "save" -> processSave(manager);
             case "load" -> processLoad(in.nextLine(),manager);
+            case "service" -> processService(in, manager);
 
             default -> System.out.println(Output.UNKNOWN.getMsg());;
         }
@@ -61,7 +62,34 @@ public class Main {
     }
 
     private static void processLoad (String areaName, StudentSystemClass manager){
-        
+
+
+    }
+
+    private static void processService(Scanner in, StudentSystemClass manager){
+        String type = in.next();
+        int lat = in.nextInt();
+        int lng = in.nextInt();
+        int price = in.nextInt();
+        int value = in.nextInt();
+        String name = in.nextLine().trim();
+
+        if(!type.equals("eating") || !type.equals("lodging") || !type.equals("leisure")){
+            System.out.println(Output.IT.getMsg());
+        }
+        else if(!manager.checkLocation(lat, lng)){
+            System.out.println(Output.IL.getMsg());
+        }
+        else if(price<=0){
+            switch (type){
+                case "lodging" -> System.out.println(Output.IRP.getMsg());
+                case "eating" -> System.out.println(Output.IMP.getMsg());
+                case "leisure" -> System.out.println(Output.ITP.getMsg());
+            }
+        }
+        else if(type.equals(""))
+
+        System.out.print(Output.SC.getMsg(), type, name);
 
     }
 
